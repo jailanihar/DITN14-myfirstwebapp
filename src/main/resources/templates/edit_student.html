@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Network Programming</title>
+
+    <link href="css/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="min-h-screen h-full flex flex-col">
+        <nav class="flex items-center justify-between flex-wrap bg-gray-700 p-6">
+            <div class="flex items-center flex-shrink-0 text-white mr-6">
+                <a href="#responsive-header" class="font-semibold text-xl tracking-tight">NEP</a>
+            </div>
+            <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                <div class="text-sm lg:flex-grow">
+                    <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:underline mr-4">
+                        Students
+                    </a>
+                    <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:underline mr-4">
+                        Groups
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="flex justify-center mt-3">
+            <div class="w-full max-w-lg">
+                <div class="w-full my-2">
+                    <div class="flex justify-between">
+                        <span class="text-2xl">Edit Student</span>
+                        <a href="#responsive-header" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">
+                            Back
+                        </a>
+                    </div>
+                </div>
+                <div class="w-full">
+                    <form action="" method="POST">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="student-id">
+                                Student ID
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="student-id" id="student-id" type="text" placeholder="Enter student id">
+                        </div>                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="full-name">
+                                Full Name
+                            </label>
+                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="full-name" id="full-name" type="text" placeholder="Enter student full name">
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-bold mb-2" for="group">
+                                Group
+                            </label>
+                            <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="group" id="group">
+                                <option>Select a Option</option>
+                                <option value="1">DITN09</option>
+                                <option value="2">DBMK09</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded">Edit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

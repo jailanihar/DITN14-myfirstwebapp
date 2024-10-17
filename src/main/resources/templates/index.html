@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script th:src="@{ /css/tailwind.css }"></script>
+	</head>
+	<body>
+		<nav class="flex flex-row w-full bg-orange-300">
+			<div class="w-3/4">
+				<a class="hover:bg-orange-700" th:href="@{ / }">Home</a>
+			</div>
+			<div class="w-1/4">
+				<span>NEP</span>
+			</div>
+		</nav>
+		<div class="flex w-full">
+			<table class="w-full mx-4 border-collapse">
+				<thead>
+					<tr>
+						<td class="w-1/5 text-center border-2">Id</td>
+						<td class="w-2/5 text-center border-2">First Name</td>
+						<td class="w-2/5 text-center border-2">Last Name</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="student : ${studentsList}" class="bg-slate-100">
+						<td th:text="${student.id}" class="w-1/5 text-center border-2"></td>
+						<td th:text="${student.firstName}" class="w-2/5 text-center border-2"></td>
+						<td th:text="${student.lastName}" class="w-2/5 text-center border-2"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<form action="/add_student" method="POST">
+			<p>Add Student</p>
+			<input type="text" name="first_name" />
+			<input type="text" name="last_name" />
+			<button type="submit">Submit</button>
+		</form>
+	</body>
+</html>
