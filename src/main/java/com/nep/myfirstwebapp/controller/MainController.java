@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.nep.myfirstwebapp.model.Group;
 import com.nep.myfirstwebapp.model.GroupRepo;
+import com.nep.myfirstwebapp.model.Student;
 import com.nep.myfirstwebapp.model.StudentRepo;
 
 @Controller
@@ -25,8 +26,8 @@ public class MainController {
 
 	@GetMapping(value="/")
 	public String index(ModelMap modelMap) {
-//		Iterable<Student> studentsList = studentRepo.findAll();
-//		modelMap.put("studentsList", studentsList);
+		Iterable<Student> studentsList = studentRepo.findAll();
+		modelMap.put("studentsList", studentsList);
 		return "students";
 	}
 	
@@ -48,8 +49,26 @@ public class MainController {
 	}
 	
 	@GetMapping(value="/addstudent")
-	public String showAddStudent() {
+	public String showAddStudent(
+			ModelMap modelMap
+			) {
+		Iterable<Group> groups = groupRepo.findAll();
+		modelMap.put("groups", groups);
 		return "add_student";
+	}
+	
+	@PostMapping(value="/addstudent")
+	public String addStudent(
+			@RequestParam String full_name,
+			@RequestParam long group
+			) {
+		Optional<Group> selectedGroup = groupRepo.findById(group);
+		if(!selectedGroup.isEmpty()) {			
+			Student newStudent = 
+					new Student(full_name, selectedGroup.get());
+			studentRepo.save(newStudent);
+		}
+		return "redirect:/";
 	}
 	
 	@PostMapping(value="/addgroup")
